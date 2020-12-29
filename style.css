@@ -3,6 +3,9 @@
     border-bottom: 1px solid gray;
     padding:20px;
   }
+  header img{
+    float:right;
+  }
   nav{
     border-right: 1px solid gray;
     width: 300px;
