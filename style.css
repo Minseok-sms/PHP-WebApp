@@ -13,14 +13,18 @@
     float:left;
   }
   nav ol{
+    padding:0px;
     list-style:none;
+
   }
   article{
     float:left;
-    padding:20px
+    padding:20px;
+    width:500px;
+
   }
   h2{
-    font-size : 30px
+    font-size : 30px;
   }
   body.white{
     background-color:white;

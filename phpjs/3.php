@@ -7,5 +7,8 @@
     <script type="text/javascript">
       document.write("hello world");
     </script>
+    <?php
+
+     ?>
   </body>
 </html>

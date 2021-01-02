@@ -1,15 +1,13 @@
 <?php
-  $conn = mysqli_connect("localhost:3307","root","111111");
+  $conn = mysqli_connect("localhost", "root");
   mysqli_select_db($conn, "opentutorials");
   $result = mysqli_query($conn, "SELECT * FROM topic");
-  $row = mysqli_fetch_assoc($result);
-  echo $row['id'];
  ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://localhost/style.css">
+    <link rel="stylesheet" href="style.css?before">
 </head>
 <body id = "change">
     <header>
@@ -19,7 +17,9 @@
     <nav>
         <ol>
           <?php
-            echo file_get_contents("list.txt");
+            while($row = mysqli_fetch_assoc($result)){
+              echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
+          }
            ?>
         </ol>
     </nav>
@@ -29,8 +29,15 @@
     </div>
     <article>
       <?php
-      if(empty($_GET['id']) == false)
-        echo file_get_contents($_GET['id'].".txt");
+        #if(empty($_GET['id']) == false)
+          #echo file_get_contents($_GET['id'].".txt");
+        if(empty($_GET['id']) == false){
+          $sql = 'SELECT * FROM topic WHERE id ='.$_GET['id'];
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_assoc($result);
+          echo '<h2>'.$row['title'].'</h2>';
+          echo $row['description'];
+        }
        ?>
     </article>
 
