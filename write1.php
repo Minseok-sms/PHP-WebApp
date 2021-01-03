@@ -17,13 +17,13 @@
     <nav>
         <ol>
           <?php
-            $a = 0;
-            while($row = mysqli_fetch_assoc($result)){
-              echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
-              $a++;
-          }
-          #echo '<li><a href = "http://localhost/write1.php">글쓰기</a></li>';
-           ?>
+          $a = 0;
+          while($row = mysqli_fetch_assoc($result){
+            echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
+            $a++;
+        }
+        #echo '<li><a href = "http://localhost/write1.php">글쓰기</a></li>';
+         ?>
         </ol>
     </nav>
     <div id = "control">
@@ -33,18 +33,20 @@
     </div>
     <article>
       <?php
-        #if(empty($_GET['id']) == false)
-          #echo file_get_contents($_GET['id'].".txt");
-        if(empty($_GET['id']) == false){
-          #$sql = 'SELECT * FROM topic WHERE id ='.$_GET['id'];
-          $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id = ".$_GET['id'];
-
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_assoc($result);
-          echo '<h2>'.$row['title'].'</h2>';
-          echo '<p>'.$row['name'].'</p>';
-          echo $row['description'];
-        }
+        $conn = mysqli_connect("localhost", "root");
+        mysqli_select_db($conn, "opentutorials");
+        $result = mysqli_query($conn, "SELECT * FROM topic");
+        $a = 0;
+        while($row = mysqli_fetch_assoc($result)){
+          if($a > 3){
+            echo '<h2>'.$row['title'].'</h2>'.'작성자 :' ;
+            echo $row['author'];
+            echo '</br>';
+            echo $row['description'];
+            echo '</br>';
+          }
+          $a++;
+      }
 
        ?>
     </article>
