@@ -40,8 +40,9 @@
           작성자 : <input type="text" name="author" value="">
         </p>
         <p>
-          본문 : <textarea name="description"></textarea>
+          본문 : <textarea name="description" id = "description"></textarea>
         </p>
+        <input type="hidden" role="uploadcare-uploader" />
         <input type="submit">
       </form>
     </article>
@@ -59,6 +60,16 @@
       })();
     </script>
 
+<script>
+  UPLOADCARE_PUBLIC_KEY = '7af76677b5211ad79242';
+</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script>
+    var singleWidget = uploadcare.SingleWidget('[role = uploadcare-uploader]');
+    singleWidget.onUploadComplete(function(info){
+    document.getElementById('description').value = document.getElementById('description').value + '<img src ="'+info.cdnUrl+'">';
+  });
+</script>
 <!--End of Tawk.to Script-->
 </body>
 </html>
