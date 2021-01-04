@@ -17,10 +17,9 @@
     <nav>
         <ol>
           <?php
-            $a = 0;
             while($row = mysqli_fetch_assoc($result)){
-              echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
-              $a++;
+              echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a><li>'."\n";
+
           }
           #echo '<li><a href = "http://localhost/write1.php">글쓰기</a></li>';
            ?>
@@ -41,9 +40,9 @@
 
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_assoc($result);
-          echo '<h2>'.$row['title'].'</h2>';
-          echo '<p>'.$row['name'].'</p>';
-          echo $row['description'];
+          echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+          echo '<p>'.htmlspecialchars($row['name']).'</p>';
+          echo strip_tags($row['description'],'<a><h1><h2><h3><li><ol>');
         }
 
        ?>
