@@ -1,6 +1,7 @@
 <?php
-  $conn = mysqli_connect("localhost", "root");
-  mysqli_select_db($conn, "opentutorials");
+  require("config/config.php");
+  require("lib/db.php");
+  $conn = db_init($config["host"],$config["duser"],$config["dname"]);
   $sql = "SELECT * FROM user WHERE name ='".$_POST['author']."'";
   $result = mysqli_query($conn, $sql);
   if($result->num_rows == 0){
@@ -14,6 +15,4 @@
   $sql = "INSERT INTO topic (title,description,author,created) VALUES('".$_POST['title']."','".$_POST['description']."','".$user_id."', now())";
   $result = mysqli_query($conn, $sql);
   header('Location: http://localhost/index.php');
-
-
  ?>
