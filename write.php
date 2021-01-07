@@ -8,44 +8,68 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css?before">
+    <link rel="stylesheet" href="style.css?after">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body id = "change">
-    <header>
-        <img src="moon.jpg" alt="moon" height = "75" width = "100">
-        <h1><a href="http://localhost/index.php">JavaScript</a></h1>
-    </header>
-    <nav>
-        <ol>
-          <?php
-            $a = 0;
-            while($row = mysqli_fetch_assoc($result)){
-              echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a><li>'."\n";
-              $a++;
+    <div class="container-fluid">
+      <header class = "jumbotron text-center">
+          <img src="moon.jpg" alt="moon" height = "75" width = "100" class = "rounded">
+          <h1><a href="/index.php">JavaScript</a></h1>
+
+      </header>
+    </div>
+
+    <div class="row">
+      <nav class ="col-md-3">
+          <ol class= "nav flex-column">
+            <?php
+              while($row = mysqli_fetch_assoc($result)){
+                echo '<li class="nav-item"><a class="nav-link" href="/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a><li>'."\n";
+
             }
             #echo '<li><a href = "http://localhost/write1.php">글쓰기</a></li>';
-          ?>
-        </ol>
-    </nav>
-    <div id = "control">
-      <input type="button" value = "white" onclick = "document.getElementById('change').className = 'white'"/>
-      <input type="button" value = "black" onclick = "document.getElementById('change').className = 'black'"/>
-      <a href="http://localhost/write.php"> 쓰기</a>
+             ?>
+          </ol>
+      </nav>
+      <div class="col-md-9">
+        <article>
+          <form action="process.php" method="post">
+            <div class="form-group">
+              <p>
+                <label for="exampleInputEmail1">제목</label><input type="text" class="form-control" name="title" placeholder = "제목을 입력해주세요.">
+              </p>
+            </div>
+            <div class="from-group">
+              <p>
+                <label for="exampleInputEmail1">작성자<input type="text"class="form-control"  name="author" placeholder = "작성자">
+              </p>
+            </div>
+            <div class="form-group">
+              <p>
+                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요."class = "form-control" id = "description"></textarea>
+              </p>
+            </div>
+              <input type="submit" class = "btn btn-primary">
+            </div>
+          </form>
+        </article>
+        <hr>
+        <div id = "control">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <input type="button"class="btn btn-primary" value = "white" onclick = "document.getElementById('change').className = 'white'"/>
+            <input type="button"class="btn btn-secondary" value = "black" onclick = "document.getElementById('change').className = 'black'"/>
+            <a href="/write.php" class="btn btn-success"> 쓰기</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <article>
-      <form action="process.php" method="post">
-        <p>
-          제목 : <input type="text" name="title">
-        </p>
-        <p>
-          작성자 : <input type="text" name="author" value="">
-        </p>
-        <p>
-          본문 : <textarea name="description" id = "description"></textarea>
-        </p>
-        <input type="submit">
-      </form>
-    </article>
+
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -60,7 +84,15 @@
       })();
     </script>
 
+    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <!--End of Tawk.to Script-->
 </body>
 </html>

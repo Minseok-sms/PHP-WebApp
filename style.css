@@ -1,31 +1,6 @@
 
-  header h1{
-    border-bottom: 1px solid gray;
-    padding:20px;
-  }
-  header img{
-    float:right;
-  }
-  nav{
-    border-right: 1px solid gray;
-    width: 300px;
-    height:600px;
-    float:left;
-  }
-  nav ol{
-    padding:0px;
-    list-style:none;
 
-  }
-  article{
-    float:left;
-    padding:20px;
-    width:500px;
 
-  }
-  h2{
-    font-size : 30px;
-  }
   body.white{
     background-color:white;
     color:black;
@@ -34,6 +9,11 @@
     background-color:black;
     color:white;
   }
-#control{
-  float:right;
+  nav ol{
+      padding:30px;
+      list-style:none;
+
+    }
+.contaner-fluid{
+  padding-top:20px;
 }

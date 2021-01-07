@@ -14,5 +14,5 @@
   }
   $sql = "INSERT INTO topic (title,description,author,created) VALUES('".$_POST['title']."','".$_POST['description']."','".$user_id."', now())";
   $result = mysqli_query($conn, $sql);
-  header('Location: http://localhost/index.php');
+  header('Location: /index.php');
  ?>
