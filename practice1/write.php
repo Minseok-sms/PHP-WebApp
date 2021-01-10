@@ -66,27 +66,22 @@
     </nav>
     <div id = "content">
     <article>
-        <?php
+        <form class="" action="process.php" method="post">
+          <p>
+            <laber for ="title">제목 : </label><input id = "title" type="text" name="title" value="" placeholder="제목을 입력해주세요.">
+          </p>
+          <p>
+            <laber for ="author">저자 : </label><input id = "author" type="text" name="author" value="" placeholder="제목을 입력해주세요.">
+          </p>
+          <p>
+            <label for="description"></label>본문 : <textarea name="description" rows="8" cols="80"></textarea>
+          </p>
+          <p>
+            <input type="submit" name="" value="전송">
+          </p>
+        </form>
 
-          if(empty($_GET['id'])){
-            echo "Welcome";
-          }
-          else
-          {
-            $id = mysqli_real_escape_string($conn, $_GET['id']);
-            $sql = "SELECT * FROM topic WHERE id =".$id;
-            $sql = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id = ".$id;
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            ?>
-            <h2><?=htmlspecialchars($row['title'])?></h2>
-            <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
-            <div><?=htmlspecialchars($row['description'])?></div>
-       <?php
-          }
-        ?>
-
-      </article>
+    </article>
       <input type="button" name="name" value="White" onclick="document.getElementById('body').className = 'white'">
       <input type="button" name="name" value="Black" onclick="document.getElementById('body').className = 'black'">
       <a href="write.php">쓰기</a>
