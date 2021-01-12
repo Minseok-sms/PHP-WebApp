@@ -1,16 +1,6 @@
 <?php
 //데이터베이스접/
-  $config = array(
-          "host"=>"localhost",
-          "duser"=>"root",
-          "dname"=>"opentutorials2"
-        );
-          function db_init($host,$duser,$dname){
-            $conn = mysqli_connect($host, $duser);
-            mysqli_select_db($conn, $dname);
-            return $conn;
-          }
-  $conn = db_init($config["host"],$config["duser"],$config["dname"]);
+  require('conn.php');
   //저자가 user테이블에 존재하는지 여부를 채크.
   $sql = "SELECT * FROM user WHERE name ='".$_POST['author']."'";
   //존재한다면 user테이블에 user.id를 알아냄.
