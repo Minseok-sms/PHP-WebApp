@@ -17,6 +17,17 @@
 
 </head>
 <body id = "change">
+    <div class="alert alert-info" role="alert" font-size= "5px">
+      <?php
+        session_start();
+        echo 'Welcome : '.$_SESSION['user'];
+       ?>
+       <form class="" action="/login.php" method="post">
+         <input type="submit" name="" value="logout" class = "btn btn-secondary">
+       </form>
+    </div>
+
+
     <div class="container-fluid">
       <header class = "jumbotron text-center">
           <img src="moon.jpg" alt="moon" height = "75" width = "100" class = "rounded">
