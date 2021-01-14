@@ -51,7 +51,9 @@
              ?>
                  <div class="alert-light text-danger text-center">
                    <?php
+
                      echo $_GET['Exist'];
+                     echo "<script>alert('중복된 아이디가 있습니다.');</script>";
                     ?>
                  </div>
              <?php

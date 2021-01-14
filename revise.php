@@ -3,6 +3,8 @@
   require("lib/db.php");
   $conn = db_init($config["host"],$config["duser"],$config["dname"]);
   $result = mysqli_query($conn, "SELECT * FROM topic");
+  $row = mysqli_fetch_assoc($result);
+  echo $_GET['id'];
  ?>
 <!DOCTYPE html>
 <html>
@@ -17,17 +19,6 @@
 
 </head>
 <body id = "change">
-    <div class="alert alert-info" role="alert" font-size= "5px">
-      <?php
-        session_start();
-        echo 'Welcome : '.$_SESSION['user'];
-       ?>
-       <form class="" action="/login.php" method="post">
-         <input type="submit" name="" value="logout" class = "btn btn-secondary">
-       </form>
-    </div>
-
-
     <div class="container-fluid">
       <header class = "jumbotron text-center">
           <img src="moon.jpg" alt="moon" height = "75" width = "100" class = "rounded">
@@ -50,39 +41,32 @@
       </nav>
       <div class="col-md-9">
         <article>
-
-            <?php
-              if(isset($_GET['id'])){ ?>
-                <a href="delete.php?id=<?=$_GET['id']?>" class = "btn btn-primary">Delete</a>
-                <a href="revise.php?id=<?=$_GET['id']?>" class = "btn btn-primary">Revise</a>
-              <?php } ?>
-
-
-
-          <?php
-            #if(empty($_GET['id']) == false)
-              #echo file_get_contents($_GET['id'].".txt");
-            if(empty($_GET['id']) == false){
-              #$sql = 'SELECT * FROM topic WHERE id ='.$_GET['id'];
-              $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id = ".$_GET['id'];
-
-              $result = mysqli_query($conn, $sql);
-              $row = mysqli_fetch_assoc($result);
-              echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-              echo '<p>'.htmlspecialchars($row['name']).'</p>';
-              echo strip_tags($row['description'],'<a><h1><h2><h3><li><ol>');
-            }else{
-              echo '<h2>'.'Wellcome to Minseok homepage'.'</h2>';
-            }
-
-           ?>
+          <form action="process.php" method="post">
+            <div class="form-group">
+              <p>
+                <label for="exampleInputEmail1">제목</label><input type="text" class="form-control" name="title" placeholder = "<?php  ?>">
+              </p>
+            </div>
+            <div class="from-group">
+              <p>
+                <label for="exampleInputEmail1">작성자<input type="text"class="form-control"  name="author" placeholder = "작성자">
+              </p>
+            </div>
+            <div class="form-group">
+              <p>
+                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요."class = "form-control" id = "description"></textarea>
+              </p>
+            </div>
+              <input type="submit" class = "btn btn-primary">
+            </div>
+          </form>
         </article>
         <hr>
         <div id = "control">
           <div class="btn-group" role="group" aria-label="Basic example">
             <input type="button"class="btn btn-primary" value = "white" onclick = "document.getElementById('change').className = 'white'"/>
             <input type="button"class="btn btn-secondary" value = "black" onclick = "document.getElementById('change').className = 'black'"/>
-            <a href="/write.php" class="btn btn-success">Write</a>
+            <a href="/write.php" class="btn btn-success"> 쓰기</a>
           </div>
         </div>
       </div>
