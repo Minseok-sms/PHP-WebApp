@@ -39,20 +39,20 @@
       </nav>
       <div class="col-md-9">
         <article>
-          <form action="process.php" method="post">
+          <form action="rev.php" method="post">
             <div class="form-group">
               <p>
-                <label for="exampleInputEmail1">제목</label><input type="text" class="form-control" name="title" placeholder = "제목을 입력해주세요.">
+                <label for="exampleInputEmail1">제목<input type="text" class="form-control" size = 100 name="title" placeholder = "제목을 입력해주세요.">
               </p>
             </div>
             <div class="from-group">
               <p>
-                <label for="exampleInputEmail1">작성자<input type="text"class="form-control"  name="author" placeholder = "작성자">
+                <label for="exampleInputEmail1">작성자<input type="text"class="form-control" size = 100 name="author" placeholder = "작성자">
               </p>
             </div>
             <div class="form-group">
               <p>
-                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요."class = "form-control" id = "description"></textarea>
+                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요." rows = "30" cols = "100" class = "form-control" id = "description"></textarea>
               </p>
             </div>
               <input type="submit" class = "btn btn-primary">

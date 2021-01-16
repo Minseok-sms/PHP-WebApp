@@ -19,6 +19,15 @@
 
 </head>
 <body id = "change">
+  <div class="alert alert-info" role="alert" font-size= "5px">
+    <?php
+      session_start();
+      echo 'Welcome : '.$_SESSION['user'];
+     ?>
+     <form class="" action="/login.php" method="post">
+       <input type="submit" name="" value="logout" class = "btn btn-secondary">
+     </form>
+   </div>
     <div class="container-fluid">
       <header class = "jumbotron text-center">
           <img src="moon.jpg" alt="moon" height = "75" width = "100" class = "rounded">
@@ -41,23 +50,29 @@
       </nav>
       <div class="col-md-9">
         <article>
-          <form action="process.php" method="post">
+          <?php
+            $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id = ".$_GET['id'];
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_assoc($result);
+
+           ?>
+          <form action="rev.php" method="post">
             <div class="form-group">
               <p>
-                <label for="exampleInputEmail1">제목</label><input type="text" class="form-control" name="title" placeholder = "<?php  ?>">
+                <label for="exampleInputEmail1">제목<input type="text" class="form-control" name="title" size = 100 value = "<?php echo $row['title'] ?>" placeholder = "제목">
               </p>
             </div>
             <div class="from-group">
               <p>
-                <label for="exampleInputEmail1">작성자<input type="text"class="form-control"  name="author" placeholder = "작성자">
+                <label for="exampleInputEmail1">작성자<input type="text"class="form-control" name="author" size = 100 value = "<?php echo $row['name'] ?>" placeholder = "작성자" >
               </p>
             </div>
             <div class="form-group">
               <p>
-                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요."class = "form-control" id = "description"></textarea>
+                <label for="exampleInputEmail1">본문<textarea name="description" placeholder = "내용을 작성해주세요."class = "form-control" rows = "30" cols = "100" id = "description"><?php echo $row['description'] ?></textarea>
               </p>
             </div>
-              <input type="submit" class = "btn btn-primary">
+              <a href="rev.php?id=<?=$_GET['id']?>"><input type="submit" class = "btn btn-primary"></a>
             </div>
           </form>
         </article>

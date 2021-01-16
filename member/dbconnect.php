@@ -11,3 +11,4 @@ $config = array(
         }
 $conn = db_init($config["host"],$config["duser"],$config["dname"]);
 ?>
+t
