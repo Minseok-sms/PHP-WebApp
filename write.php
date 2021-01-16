@@ -39,7 +39,7 @@
       </nav>
       <div class="col-md-9">
         <article>
-          <form action="rev.php" method="post">
+          <form action="process.php" method="post">
             <div class="form-group">
               <p>
                 <label for="exampleInputEmail1">제목<input type="text" class="form-control" size = 100 name="title" placeholder = "제목을 입력해주세요.">
