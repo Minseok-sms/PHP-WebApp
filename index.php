@@ -20,7 +20,12 @@
     <div class="alert alert-info" role="alert" font-size= "5px">
       <?php
         session_start();
-        echo 'Welcome : '.$_SESSION['user'];
+        if(!$_SESSION['user']){ // 로그인 하지못햇을시 무조건 login.php거침.
+          header('location: /login.php');
+        }
+        else{
+          echo 'Welcome : '.$_SESSION['user'];
+        }
        ?>
        <form class="" action="/login.php" method="post">
          <input type="submit" name="" value="logout" class = "btn btn-secondary">
@@ -74,8 +79,10 @@
             }else{
               echo '<h2>'.'Wellcome to Minseok homepage'.'</h2>';
             }
+            echo '<hr>';
+            echo '<h3>'.'comment'.'<h3>';
+            ?>
 
-           ?>
         </article>
         <hr>
         <div id = "control">
