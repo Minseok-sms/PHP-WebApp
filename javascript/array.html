@@ -1,0 +1,32 @@
+<html>
+
+  <head>
+    <script>
+      var list = ["hello","from"];
+      var coworkers = ['egoing','leezche','duru','taeho'];
+    </script>
+  </head>
+  <body>
+    <script>
+      document.write(list[0]);
+      document.write(list[1]);
+      list.push('the');
+      list.push('other side');
+      var i = 0;
+      while( i < list.length){
+        document.write(list[i] + " ");
+        i++;
+      }
+      for(var i = 0 ; i < list.length; i++)
+        document.write(list[i] + " ");
+    </script>
+    <br>
+    <script>
+        var i = 0;
+        while(i < coworkers.length){
+          document.write('<li><a href="http://a.com/'+coworkers[i]+'">'+coworkers[i]+'</a></li>');
+          i++;
+        }
+      </script>
+  </body>
+</html>
