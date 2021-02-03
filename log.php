@@ -15,8 +15,6 @@ session_start();
         header("location:/login.php?Invalid= Please Enter Correct User Name and Password");
 
       }
-
-
     }
   }else {
 

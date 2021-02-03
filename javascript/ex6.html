@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+  <head>
+  </head>
+  <body>
+    <script>
+      var con_test = confirm("helloworld");
+      document.write(con_test);
+
+      //이 함수선언식은 함수를 먼저 호출하고 그 후에 함수를 선언해도 문제가 없습니다.
+      function sum(param1, param2 = 3, param3 = 10){
+        document.write(param1 + param2 + param3 + '<br>');
+      }
+      sum(1,2,3);
+      //위에랑 같음 // 함수를 선언하기전에 함수를 호출시 에러.
+      var sumf = function(param1, param2 = 3, param3 = 10){
+        document.write(param1 + param2 + param3);
+      }
+      sumf(1,2,3);
+
+
+
+      document.write("<br>");
+      //함수 참조.
+      function str(){
+        return "hello";
+      }
+      var str1 = str;
+      document.write(str1());
+
+      //함수 화살표표기법. 변수(함수명) = 파라미터() => 리턴할값
+      // 함수 화살표기법도 함수선언후에 함수호출해야함. 전에호출시 에러.
+      const arrowFunc = () => 'in arrow function';
+      document.write(arrowFunc());
+      document.write("</br>");
+      const Func1 = index => index;
+      document.write(Func1(3));
+
+      const sumFunc = sum => {
+        const sumValue = sum + 10;
+        return sumValue;
+      }
+      document.write("<br>");
+      document.write(sumFunc(1000));
+
+
+
+    </script>
+  </body>
+</html>

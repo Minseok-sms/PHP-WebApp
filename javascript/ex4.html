@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+    <script>
+      var arr = new Array();
+      arr = ["korea","usa","japan","germany"];
+      arr.push("france");
+      //배열 맨앞에 추가함.
+      arr.unshift("paris");
+      document.write(arr[0]);
+      document.write("</br>");
+
+      var data = "hello world";
+      document.write(data + " " + typeof(data) + "<br>");
+      var data = 23;
+      document.write(data + " " + typeof(data) + "<br>");
+      data = new Array();
+      document.write(data + " " + typeof(data) + "<br>");
+      data = "23";
+      var str = parseInt(data);
+      var str1 = Number(data);
+      document.write(str + " " + str1);
+      var num = 23;
+      str = String(num);
+      document.write(str + " : " + typeof(str));
+      document.write("</br></br>");
+      //월 표시할떄는 +1 해줘야함
+      const NOW_DATE = new Date();
+      const NOW_MONTH = NOW_DATE.getMonth() + 1;
+      //.getFullYear(), .getMonth() + 1,.getDate()
+      //.getHours(), getMinutes(), getSeconds(),.getMilliseconds()
+      document.write(NOW_DATE + "<br>");
+      document.write(NOW_MONTH);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

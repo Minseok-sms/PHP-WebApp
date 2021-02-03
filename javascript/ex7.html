@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+  <head>
+  </head>
+  <body>
+    <script>
+      //makeCar이라는 객체생성.
+      function makeCar(){
+        this.name;
+        this.company;
+        this.meth = showCar;
+      }
+      function showCar(){
+        document.write("car name : " + this.name + "<br>");
+        document.write("car company : " + this.company + "<br>");
+      }
+      r8 = new makeCar();
+      r8.name = "R8";
+      r8.company = "AUDI";
+      r8.meth();
+
+      document.write("<br>");
+      const myDeviceData = {name : 'gpro', cpu : "i7", display : 6.8};
+      function myDevice(data){
+        document.write(data.name + "<br>");
+        document.write(data.cpu + "<br>");
+        document.write(data.display + "<br>");
+      }
+      myDevice(myDeviceData);
+      const myDeviceData2 = { name : 'iPad Pro', cpu : 'A12 Bionic', display : 12.9 };
+
+      function myDevice2({name, cpu, display}){
+          document.write(`${name}` + '<br>');
+          document.write(`${cpu}` + '<br>');
+          document.write(`${display}`);
+      }
+      myDevice2(myDeviceData2);
+    </script>
+  </body>
+</html>

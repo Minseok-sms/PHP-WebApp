@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+  <head>
+  </head>
+  <body>
+    <script>
+      function hello(){
+        document.write("hello world");
+      }
+      hello();
+      document.write("<br>");
+      glo_var = 10;
+      //로컬 변수 앞에 var가 없다면 해당 함수가 한번 호출 된 이후에는 글로벌 변수가 된다.
+      function hellos(){
+        var local_var = 20;
+        local_var2 = 30;
+      }
+      hellos();
+      document.write(local_var2);
+    </script>
+  </body>
+</html>
