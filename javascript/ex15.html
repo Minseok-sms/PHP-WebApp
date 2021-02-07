@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - checkbox</title>
+<script>
+window.onload = function(){
+    console.log('checkedBox is ' + document.getElementById('checked').checked);
+    console.log('uncheckedBox is ' + document.getElementById('unchecked').checked);
+    document.getElementById('checked').checked = false;
+    document.getElementById('unchecked').checked = true;
+};
+</script>
+</head>
+<body>
+    <label for="checked">checked</label>
+    <input type="checkbox" id="checked" checked/>
+    <label for="unchecked">unchecked</label>
+    <input type="checkbox" id="unchecked" />
+</body>
+</html>

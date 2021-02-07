@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - checkbox</title>
+<script>
+window.onload = function(){
+    var hobbyAllBtn = document.getElementById('hobbySelectAllBtn');
+    var jobAllBtn = document.getElementById('jobSelectAllBtn');
+    var hobbyUnSelectAllBtn = document.getElementById('hobbyUnSelectAllBtn');
+    var jobUnSelectAllBtn = document.getElementById('jobUnSelectAllBtn');
+
+    hobbyAllBtn.addEventListener('click', function(){
+        checkedAll('hobby',true);
+    });
+
+    jobAllBtn.addEventListener('click', function(){
+        checkedAll('job',true);
+    });
+    hobbyUnSelectAllBtn.addEventListener('click',function(){
+        checkedAll('hobby',false);
+    });
+    jobUnSelectAllBtn.addEventListener('click',function(){
+        checkedAll('job',false);
+    });
+
+    function checkedAll(checkType, value){
+        for(var i = 0; i < document.getElementsByName(checkType).length; i++){
+            document.getElementsByName(checkType)[i].checked = value;
+        }
+    }
+};
+</script>
+</head>
+<body>
+    <input type="button" id="hobbySelectAllBtn" value="Select All Hobbies"/>
+    <input type="button" id="hobbyUnSelectAllBtn" value="unSelect All Hobbies"/>
+    <h3>What's your hobby?</h3>
+    <label>listening music<input type="checkbox" name="hobby" value="1"/></label>
+    <label>watching youtube<input type="checkbox" name="hobby" value="2"/></label>
+    <label>watching movie<input type="checkbox" name="hobby" value="3"/></label>
+    <label>making doll<input type="checkbox" name="hobby" value="4"/></label>
+    <label>cooking<input type="checkbox" name="hobby" value="5"/></label>
+    <label>coding<input type="checkbox" name="hobby" value="6"/></label>
+    <label>none<input type="checkbox" name="hobby" value="7"/></label>
+    <br>
+    <br>
+    <br>
+
+
+    <input type="button" id="jobSelectAllBtn" value="Select All Jobs"/>
+    <input type="button" id="jobUnSelectAllBtn" value="unSelect All Jobs"/>
+    <h3>What's your Job?</h3>
+    <label>business<input type="checkbox" name="job" value="1"/></label>
+    <label>operation<input type="checkbox" name="job" value="2"/></label>
+    <label>head hunter<input type="checkbox" name="job" value="3"/></label>
+    <label>president<input type="checkbox" name="job" value="4"/></label>
+    <label>driver<input type="checkbox" name="job" value="5"/></label>
+    <label>programmer<input type="checkbox" name="job" value="6"/></label>
+    <label>designer<input type="checkbox" name="job" value="7"/></label>
+</body>
+</html>

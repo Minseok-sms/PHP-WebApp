@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - checkbox</title>
+<script>
+window.onload = function(){
+    for(var i = 0; i < document.getElementsByTagName('input').length; i++){
+      if(document.getElementsByTagName('input')[i].getAttribute('type') == 'checkbox')
+        document.getElementsByTagName('input')[i].checked = true;
+    }
+};
+</script>
+</head>
+<body>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+    <label>haro<input type="checkbox" /></label>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - click event</title>
+<script>
+  //window.onload 함수 --> html이 다 로딩된후 스크립트를 실행시켜줌
+  // getElementbyId 는 elements가아닌 이유가 id값은 고유, 겹칠수없음.
+  window.onload = function(){
+    document.getElementsByClassName('hello')[2].style.color = "red";
+    document.getElementsByTagName('h3')[0].style.color = "blue";
+    document.getElementById('sec').style.color = "orange";
+
+    //querySelector('#') => id ,
+    //querySelectorAll('.') => class
+
+    document.querySelectorAll('.side')[1].style.color = "yellow";
+    document.querySelector('#side').style.color = "blue";
+    document.querySelectorAll('p')[5].style.color = "yellow";
+  };
+</script>
+</head>
+<body>
+    <p class="hello">Hello World</p>
+    <p class="hello" id = "sec">Hello World</p>
+    <p class="hello">Hello World</p>
+    <p class="hello">Hello World</p>
+    <p class="hello">Hello World</p>
+    <p class="hello">Hello World</p>
+    <p class="hello">Hello World</p>
+    <h3>Script</h3>
+    <h3>Script</h3>
+    <h3>Script</h3>
+    <p class = "side">from the other side</p>
+    <p class = "side">from the other side</p>
+    <p id = "side">from the other side</p>
+    <p>from the other side</p>
+    <p>from the other side</p>
+    <p>from the other side</p>
+</body>
+</body>
+</html>

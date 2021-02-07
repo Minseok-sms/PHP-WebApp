@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - click event</title>
+  <script>
+    window.onload = function(){
+      var target = document.getElementsByTagName('p')[1];
+      target.addEventListener('click', function(){
+        alert("hello world");
+      });
+    };
+  </script>
+</head>
+<body>
+    <p onClick="alert('Hello World');">click here</p>
+    <p>click here</p>
+</body>
+</body>
+</html>

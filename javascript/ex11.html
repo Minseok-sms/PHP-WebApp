@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>EVERDEVEL - JavaScript - onmouseover event</title>
+
+<script>
+    //mouseover => 마우스 가져다댓을경우.
+    window.onload = function(){
+      var target = document.getElementById('hello');
+      target.addEventListener('mouseover',function(){
+        target.style.color = "yellow";
+      });
+    //mouseout => 마우스를 땟을경우.
+      target.addEventListener('mouseout',function(){
+        target.style.color = "black";
+
+    //마우스를 눌렀을시
+        var touch = document.getElementsByClassName('side')[0];
+        touch.addEventListener('mousedown', function(){
+            touch.style.color = "red";
+        });
+    //마우스를 뗏을시
+        touch.addEventListener('mouseup', function(){
+            touch.style.color = "black";
+        });
+
+      });
+
+
+
+    };
+</script>
+</head>
+<body>
+    <p id = "hello">here</p>
+    <p class = "side">touch here</p>
+    <p
+    onMouseover ="this.style.color = 'red';"
+    onMouseout ="this.style.color = 'black';"
+    onMousedown = "this.style.color = 'yellow';"
+    onMouseup = "this.style.color = 'pink';"
+    >clickhere</p>
+</body>
+</html>
