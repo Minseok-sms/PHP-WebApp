@@ -1,0 +1,33 @@
+header{
+  border-bottom: 1px solid grey;
+  padding-left: 10px;
+  text-align: center;
+}
+body{
+  margin:0;
+}
+body.black{ /* 클래스접 */
+  background-color : black;
+  color:white;
+}
+body.white{
+  background-color : white;
+  color:black;
+}
+nav{
+  border-right: 1px solid grey;
+  width:200px;
+  height:600px;
+  float:left;
+}
+nav ul{
+  margin:0;
+  padding:20px;
+  list-style:none;
+}
+#content{/* ID접근*/
+  float:left;
+  padding-left:10px;
+  padding-top:20px;
+  width:500px;
+}
