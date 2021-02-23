@@ -19,6 +19,20 @@
 
   </head>
   <body id = "change">
+    <div class="alert alert-info" role="alert" font-size= "5px">
+      <?php
+        session_start();
+        if(!$_SESSION['user']){ // 로그인 하지못햇을시 무조건 login.php거침.
+          header('location: login.php');
+        }
+        else{
+          echo 'Welcome : '.$_SESSION['user'];
+        }
+       ?>
+       <form class="" action="login.php" method="post">
+         <input type="submit" name="" value="logout" class = "btn btn-secondary">
+       </form>
+    </div>
     <header>
       <h1><a href = "index.php">JavaScript</a></h1>
     </header>

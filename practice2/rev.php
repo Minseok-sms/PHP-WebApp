@@ -19,7 +19,7 @@
     $user_id = $row['id'];
   }
 
-  $sql = "UPDATE topic SET title = '".$_POST['title']."', description = '".$_POST['description']."', author = '".$user_id."' WHERE topic.id = '".$row2['id']."'";
+  $sql = "UPDATE topic SET title = '".$_POST['title']."', description = '".$_POST['description']."', author = '".$user_id."' created = now() WHERE topic.id = '".$row2['id']."'";
   $result = mysqli_query($conn, $sql);
 
   header('Location: index.php?id='.$row2['id'].'');
