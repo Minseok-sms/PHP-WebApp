@@ -12,25 +12,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body id = "change">
-    <div class="alert alert-info" role="alert" font-size= "5px">
-      <?php
-        session_start();
-        if(!$_SESSION['user']){ // 로그인 하지못햇을시 무조건 login.php거침.
-          header('location: /login.php');
-        }
-        else{
-          echo 'Welcome : '.$_SESSION['user'];
-        }
+    <!--
+    <div class="alert alert-info alert-dismissible fade show" role="alert" font-size= "5px">
+      #<?php
+        #session_start();
+        #if(!$_SESSION['user']){ // 로그인 하지못햇을시 무조건 login.php거침.
+        #  header('location: /login.php');
+        #}
+        #else{
+        #  echo 'Welcome : '.$_SESSION['user'];
+      #}
        ?>
-       <form class="" action="/login.php" method="post">
-         <input type="submit" name="" value="logout" class = "btn btn-secondary">
-       </form>
+         <Button type="submit" name="" data-bs-dismiss="alert" data-bs-toggle="modal" data-bs-target="#exampleModal" class = "btn btn-secondary">Logout</Button>
     </div>
+  -->
+
+  <div class="container-fluid" style = "background-color : #0d6efd">
+    <br>
+    <div class="row">
+        <div class="col-sm-11"><?php
+          session_start();
+          if(!$_SESSION['user']){ // 로그인 하지못햇을시 무조건 login.php거침.
+            header('location: /login.php');
+          }
+          else{
+            echo 'Welcome : '.$_SESSION['user'];
+        }
+         ?></div>
+
+         <div class="col-sm-1">
+           <Button type="submit" name="" data-bs-dismiss="alert" data-bs-toggle="modal" data-bs-target="#exampleModal" class = "btn btn-secondary">Logout</Button>
+         </div>
+    </div>
+
+  </div>
+
+
 
 
     <div class="container-fluid">
@@ -138,5 +161,42 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <!--End of Tawk.to Script-->
+  <footer style = "background-color : #bbbbbb">
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-sm-2" style = "text-align : center";><h5>Copyright &copy; 2021</h5><h5>민석(Minseok)</h5></div>
+        <div class="col-sm-6"><h4>대표자소개</h4><p>서민석</p></div>
+        <div class = "col-sm-2"><h4 style="text-align:center;">SNS</h4>
+          <div class ="list-group">
+            <a href ="#" class="list-group-item">facebook</a>
+            <a href ="#" class="list-group-item">youtube</a>
+            <a href ="#" class="list-group-item">naver</a>
+          </div>
+        </div>
+        <div class="col-sm-2"><h4 style="text-align : center"><i class="bi-check2"></i>  by 민석</h4>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form class="" action="/login.php" method="post">
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
